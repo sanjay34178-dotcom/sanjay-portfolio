@@ -1,78 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+
 <meta charset="UTF-8">
-<title>Sanjay | 3D Artist Portfolio</title>
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sanjay | 3D Character Artist</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#0a0a0a;
+color:white;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:#000;
+position:fixed;
+width:100%;
+z-index:1000;
+}
+
+nav h2{
+color:#fff;
+}
+
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-size:16px;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+overflow:hidden;
+}
+
+.hero video{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-1;
+}
+
+.hero h1{
+font-size:65px;
+letter-spacing:3px;
+}
+
+.hero p{
+margin-top:10px;
+font-size:22px;
+color:#ccc;
+}
+
+/* SECTIONS */
+
+section{
+padding:100px 10%;
+}
+
+.section-title{
+font-size:40px;
+margin-bottom:40px;
+text-align:center;
+}
+
+/* ABOUT */
+
+.about{
+max-width:800px;
+margin:auto;
+text-align:center;
+line-height:1.7;
+color:#ccc;
+}
+
+/* PORTFOLIO */
+
+.portfolio-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
+
+.portfolio-item{
+overflow:hidden;
+border-radius:10px;
+cursor:pointer;
+}
+
+.portfolio-item img{
+width:100%;
+transition:0.4s;
+}
+
+.portfolio-item:hover img{
+transform:scale(1.1);
+}
+
+/* VIDEO */
+
+.video-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:30px;
+}
+
+video{
+width:100%;
+border-radius:10px;
+}
+
+/* CONTACT */
+
+.contact{
+text-align:center;
+}
+
+.contact a{
+display:block;
+margin:10px;
+color:#00c3ff;
+font-size:18px;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:20px;
+background:#000;
+margin-top:40px;
+color:#777;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<header>
-<h1>Sanjay</h1>
-<p>3D Artist • Game Designer • Character Artist</p>
-</header>
+<nav>
 
-<section class="about">
-<h2>About Me</h2>
-<p>
-I am Sanjay, a 3D Artist and Game Designer passionate about
-character creation, animation, and digital storytelling.
-</p>
-</section>
+<h2>Sanjay</h2>
 
-<section class="gallery-section">
-<h2>Art Gallery</h2>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#portfolio">Portfolio</a></li>
+<li><a href="#video">Showreel</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 
-<div class="gallery">
+</nav>
 
-<img src="images/sanjay 2.jpeg" onclick="openImage(this)">
-<img src="images/sanjay 2.jpeg" onclick="openImage(this)">
-<img src="images/art3.jpg" onclick="openImage(this)">
+<!-- HERO -->
 
-</div>
+<section class="hero">
 
-</section>
-
-<section class="animation">
-
-<h2>Animation Showcase</h2>
-
-<video controls>
-<source src="videos/animation1.mp4" type="video/mp4">
+<video autoplay muted loop>
+<source src="images/hero.mp4" type="video/mp4">
 </video>
 
+<div>
+<h1>SANJAY</h1>
+<p>3D Character Artist</p>
+</div>
+
 </section>
 
-<section class="gallery-section">
+<!-- ABOUT -->
 
-<h2>Art Gallery</h2>
+<section id="about">
 
-<div class="gallery">
+<h2 class="section-title">About Me</h2>
 
-<img src="images/art1.jpg" onclick="openImage(this)">
-<img src="images/character.png" onclick="openImage(this)">
+<p class="about">
+
+Dedicated 3D Character Artist specializing in high-resolution sculpting using ZBrush with a strong foundation in anatomy, form, and silhouette development.
+
+Experienced in creating stylized and realistic characters and preparing optimized real-time assets for game engines.
+
+Contributed to interactive VR projects and real-time applications. My long-term goal is to build immersive interactive experiences for games and real-time environments.
+
+</p>
+
+</section>
+
+<!-- PORTFOLIO -->
+
+<section id="portfolio">
+
+<div class="portfolio-grid" id="portfolio-grid">
+
+<div class="portfolio-item reveal">
+<img src="images/projects/batmobile/1.jpg" alt="Batmobile Project">
+<div class="portfolio-overlay">
+<h3>Batmobile</h3>
+<p>Hard Surface Modeling</p>
+</div>
+</div>
+
+<div class="portfolio-item reveal">
+<img src="images/projects/bear/1.jpg" alt="Bear Character">
+<div class="portfolio-overlay">
+<h3>Bear Character</h3>
+<p>3D Character Sculpt</p>
+</div>
+</div>
+
+<div class="portfolio-item reveal">
+<img src="images/projects/demon/1.jpg" alt="Demon Character">
+<div class="portfolio-overlay">
+<h3>Demon Character</h3>
+<p>ZBrush Sculpt</p>
+</div>
+</div>
+
+<div class="portfolio-item reveal">
+<img src="images/projects/detailed robot/1.jpg" alt="Robot Model">
+<div class="portfolio-overlay">
+<h3>Detailed Robot</h3>
+<p>Hard Surface Model</p>
+</div>
+</div>
+
+<div class="portfolio-item reveal">
+<img src="images/projects/dino/1.jpg" alt="Dinosaur Sculpt">
+<div class="portfolio-overlay">
+<h3>Dinosaur</h3>
+<p>Creature Sculpt</p>
+</div>
+</div>
+
+<div class="portfolio-item reveal">
+<img src="images/projects/elf/1.jpg" alt="Elf Character">
+<div class="portfolio-overlay">
+<h3>Elf Character</h3>
+<p>Fantasy Character</p>
+</div>
+</div>
+
+<div class="portfolio-item reveal">
+<img src="images/projects/samurai/1.jpg" alt="Samurai Character">
+<div class="portfolio-overlay">
+<h3>Samurai</h3>
+<p>Character Design</p>
+</div>
+</div>
+
+<div class="portfolio-item reveal">
+<img src="images/projects/scfi/1.jpg" alt="SciFi Model">
+<div class="portfolio-overlay">
+<h3>Sci-Fi Asset</h3>
+<p>Game Ready Asset</p>
+</div>
+</div>
+
+<div class="portfolio-item reveal">
+<img src="images/projects/spaceship/1.jpg" alt="Spaceship Model">
+<div class="portfolio-overlay">
+<h3>Spaceship</h3>
+<p>Vehicle Design</p>
+</div>
+</div>
+
+<div class="portfolio-item reveal">
+<img src="images/projects/witch/1.jpg" alt="Witch Character">
+<div class="portfolio-overlay">
+<h3>Witch Character</h3>
+<p>Stylized Character</p>
+</div>
+</div>
 
 </div>
 
 </section>
 
-<section class="youtube">
+<!-- VIDEO SHOWREEL -->
 
-<h2>YouTube Animations</h2>
+<section id="video">
 
-<iframe width="560" height="315"
-src="https://www.youtube.com/embed/YOUR_VIDEO_ID">
-</iframe>
+<h2 class="section-title">Showreel</h2>
+
+<div class="video-grid">
+
+<video controls>
+<source src="images/images folder/witch/sajay1.mp4" type="video/mp4">
+</video>
+
+<video controls>
+<source src="images/images folder/samurai/ZBrush Movie.mp4" type="video/mp4">
+</video>
+
+</div>
 
 </section>
 
-<div id="imagePopup" onclick="closeImage()">
-<img id="popupImg">
+<!-- CONTACT -->
+
+<section id="contact">
+
+<h2 class="section-title">Contact</h2>
+
+<div class="contact">
+
+<a href="mailto:sanjay34178@gmail.com">sanjay34178@gmail.com</a>
+
 </div>
 
-<script src="script.js"></script>
+</section>
+
+<footer>
+
+© 2026 Sanjay | 3D Character Artist
+
+</footer>
 
 </body>
 </html>
