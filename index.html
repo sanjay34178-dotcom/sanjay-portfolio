@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Sanjay | 3D Artist Portfolio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>Sanjay</h1>
+<p>3D Artist • Game Designer • Character Artist</p>
+</header>
+
+<section class="about">
+<h2>About Me</h2>
+<p>
+I am Sanjay, a 3D Artist and Game Designer passionate about
+character creation, animation, and digital storytelling.
+</p>
+</section>
+
+<section class="gallery-section">
+<h2>Art Gallery</h2>
+
+<div class="gallery">
+
+<img src="images/sanjay 2.jpeg" onclick="openImage(this)">
+<img src="images/sanjay 2.jpeg" onclick="openImage(this)">
+<img src="images/art3.jpg" onclick="openImage(this)">
+
+</div>
+
+</section>
+
+<section class="animation">
+
+<h2>Animation Showcase</h2>
+
+<video controls>
+<source src="videos/animation1.mp4" type="video/mp4">
+</video>
+
+</section>
+
+<section class="gallery-section">
+
+<h2>Art Gallery</h2>
+
+<div class="gallery">
+
+<img src="images/art1.jpg" onclick="openImage(this)">
+<img src="images/character.png" onclick="openImage(this)">
+
+</div>
+
+</section>
+
+<section class="youtube">
+
+<h2>YouTube Animations</h2>
+
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/YOUR_VIDEO_ID">
+</iframe>
+
+</section>
+
+<div id="imagePopup" onclick="closeImage()">
+<img id="popupImg">
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
