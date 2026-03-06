@@ -355,17 +355,19 @@ img {
   line-height: 0.9;
   margin-bottom: 20px;
   letter-spacing: -0.03em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2em;
 }
 
 .filled-text {
   color: var(--text-primary);
-  display: block;
 }
 
 .stroke-text {
   -webkit-text-stroke: 2px var(--text-primary);
   color: transparent;
-  display: block;
 }
 
 .hero-role {
