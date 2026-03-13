@@ -238,11 +238,13 @@ img {
   transition: width var(--transition);
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
   color: var(--text-primary);
 }
 
-.nav-links a:hover::after {
+.nav-links a:hover::after,
+.nav-links a.active::after {
   width: 100%;
 }
 
@@ -282,6 +284,8 @@ img {
   display: flex;
   align-items: center;
   overflow: hidden;
+  /* FIX: fallback background if video fails to load */
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
 }
 
 .hero-background {
@@ -669,7 +673,8 @@ img {
   overflow: hidden;
   aspect-ratio: 4 / 3;
   cursor: pointer;
-  background: var(--bg-card);
+  /* FIX: gradient fallback so items are never a plain black box */
+  background: linear-gradient(135deg, #1c1c1c 0%, #222222 100%);
 }
 
 .portfolio-item img {
@@ -678,6 +683,9 @@ img {
   object-fit: cover;
   transition: transform 0.5s ease, filter 0.5s ease;
   filter: brightness(0.85);
+  /* FIX: prevent alt-text breaking layout when image is missing */
+  font-size: 0.75rem;
+  color: var(--text-muted);
 }
 
 .portfolio-item:hover img {
@@ -968,6 +976,8 @@ footer p {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   transition: transform var(--transition);
+  /* FIX: fallback background for modal images that fail to load */
+  background: var(--bg-secondary);
 }
 
 .modal-gallery img:hover {
