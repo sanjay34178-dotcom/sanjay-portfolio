@@ -13,346 +13,461 @@
 </head>
 <body>
 
-  <div class="cursor-dot"></div>
-  <div class="cursor-ring"></div>
-  <canvas id="cursor-trail"></canvas>
+  <!-- Noise overlay -->
+  <div class="noise"></div>
 
-  <div class="page-transition">
+  <!-- Page transition bars -->
+  <div class="page-transition" id="pt">
     <div class="pt-bar"></div><div class="pt-bar"></div><div class="pt-bar"></div>
     <div class="pt-bar"></div><div class="pt-bar"></div>
   </div>
 
-  <div class="noise"></div>
+  <!-- Custom cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <canvas id="cursor-trail"></canvas>
 
+  <!-- Navigation -->
   <nav class="navbar" id="navbar">
-    <div class="logo" onclick="scrollToTop()">SS<span>.</span></div>
+    <div class="logo">SS<span>.</span></div>
     <ul class="nav-links" id="nav-links">
-      <li><a href="#about"><span>01</span>About</a></li>
-      <li><a href="#skills"><span>02</span>Skills</a></li>
-      <li><a href="#portfolio"><span>03</span>Portfolio</a></li>
-      <li><a href="#contact"><span>04</span>Contact</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
     </div>
   </nav>
 
   <main>
 
-    <section id="hero" class="hero">
+    <!-- ===== HERO ===== -->
+    <section id="hero" class="hero-section">
       <canvas id="hero-canvas"></canvas>
-      <div class="hero-video-wrap">
+
+      <div class="hero-background">
         <video autoplay loop muted playsinline class="hero-video">
           <source src="images/portfoleo.mp4" type="video/mp4">
         </video>
-        <div class="hero-vignette"></div>
+        <div class="hero-overlay"></div>
       </div>
-      <div class="hero-content">
-        <div class="hero-tag">
-          <span class="tag-line"></span>
-          <span class="tag-text">B.SC. GAME ART &amp; DESIGN</span>
+
+      <div class="hero-bg-word" aria-hidden="true">SANJAY</div>
+
+      <div class="hero-content left-align">
+        <div class="hero-subtitle">
+          <div class="subtitle-line"></div>
+          <span>B.SC. GAME ART &amp; DESIGN · 2026</span>
         </div>
-        <h1 class="hero-name">
-          <span class="name-line">SANJAY</span>
-          <span class="name-line stroke">S</span>
+        <h1 class="hero-title">
+          <span class="filled-text">SANJAY</span>
+          <span class="stroke-text">S</span>
         </h1>
-        <p class="hero-role">3D Character Artist &nbsp;/&nbsp; Game Art &nbsp;/&nbsp; Real-Time Dev</p>
-        <div class="hero-btns">
-          <a href="#portfolio" class="btn-primary">View Work</a>
-          <a href="#contact" class="btn-ghost">Contact Me</a>
+        <h2 class="hero-role">3D Character Artist &nbsp;|&nbsp; Game Art &nbsp;|&nbsp; Real-Time Development</h2>
+        <div class="hero-cta">
+          <a href="#portfolio" class="btn btn-outline">VIEW PORTFOLIO</a>
         </div>
       </div>
+
       <div class="hero-scroll">
         <span>SCROLL</span>
         <div class="scroll-line"></div>
       </div>
-      <div class="hero-counter">
-        <div class="counter-item"><span class="count" data-target="10">0</span><p>Projects</p></div>
-        <div class="counter-item"><span class="count" data-target="3">0</span><p>Years Exp</p></div>
-        <div class="counter-item"><span class="count" data-target="5">0</span><p>Tools</p></div>
-      </div>
     </section>
 
-    <section id="about" class="about">
-      <div class="container">
-        <div class="section-label">01 — ABOUT</div>
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="about-section">
+      <div class="container section-padding">
+        <div class="section-header">
+          <h2>About Me</h2>
+          <div class="header-line"></div>
+        </div>
+
         <div class="about-grid">
-          <div class="about-img-wrap reveal">
-            <div class="about-img-frame">
-              <img src="images/profile.jpeg" alt="Sanjay S" class="about-img">
-              <div class="img-scanline"></div>
+          <div class="about-image-container reveal">
+            <div class="profile-frame">
+              <img src="images/profile.jpeg" alt="Sanjay S Profile" class="profile-pic">
+              <div class="frame-glow"></div>
             </div>
-            <div class="about-img-tag">CHARACTER ARTIST</div>
           </div>
-          <div class="about-text reveal">
-            <h2 class="section-title">Crafting Worlds <br><em>One Polygon At A Time</em></h2>
-            <p class="about-bio">Dedicated 3D Character Artist specializing in high-resolution sculpting using ZBrush with a strong foundation in anatomy, form, and silhouette development. Experienced in stylized and realistic characters for game engines. Contributed to interactive VR and real-time projects.</p>
-            <div class="about-stats">
-              <div class="stat"><span>2026</span><p>Graduating</p></div>
-              <div class="stat"><span>Tamil</span><p>Native</p></div>
-              <div class="stat"><span>Open</span><p>To Relocate</p></div>
-            </div>
-            <div class="edu-block">
-              <div class="edu-item">
-                <div class="edu-dot active"></div>
-                <div>
-                  <h4>B.Sc. Game Art &amp; Design</h4>
-                  <p>Dr. M.G.R. Educational and Research Institute · 2026</p>
+
+          <div class="about-content reveal">
+            <p class="bio-text">
+              Dedicated 3D Character Artist specializing in high-resolution sculpting using ZBrush with a strong foundation in anatomy, form, and silhouette development. Experienced in creating stylized and realistic characters and preparing optimized real-time assets for game engines. Contributed to interactive VR and real-time projects in collaborative environments. Aspiring Game Developer with a long-term goal of building immersive interactive experiences for games and real-time applications.
+            </p>
+
+            <div class="timeline">
+              <h3 class="timeline-title">Education</h3>
+
+              <div class="timeline-item">
+                <div class="timeline-dot glow-blue"></div>
+                <div class="timeline-content">
+                  <h4>Bachelor of Science in Game Art &amp; Design</h4>
+                  <p class="timeline-date">Graduating 2026 &nbsp;·&nbsp; Dr. M.G.R. Educational and Research Institute</p>
                 </div>
               </div>
-              <div class="edu-item">
-                <div class="edu-dot"></div>
-                <div>
-                  <h4>Higher Secondary Certificate</h4>
-                  <p>Sri Venkateswara Matriculation · 2023 · 62.3%</p>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <h4>Higher Secondary Certificate (HSC)</h4>
+                  <p class="timeline-date">2023 &nbsp;·&nbsp; Sri Venkateswara Matriculation Higher Secondary School</p>
+                  <p class="timeline-desc">Score: 62.3%</p>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section id="experience" class="experience">
-      <div class="container">
-        <div class="section-label">02 — EXPERIENCE</div>
-        <h2 class="section-title reveal">Notable <em>Projects</em></h2>
-        <div class="exp-list">
-          <div class="exp-item reveal">
-            <div class="exp-number">01</div>
-            <div class="exp-body">
-              <div class="exp-header">
-                <h3>Medical VR Anatomy Training</h3>
-                <span class="exp-tag">Unreal Engine · VR</span>
-              </div>
-              <p class="exp-org">Sri Lalithambigai Medical College · Sep 2025 – Feb 2026</p>
-              <p class="exp-desc">Developed interactive VR app for medical students. Sculpted anatomical models in ZBrush — heart, brain, stomach, liver. Retopology, UV mapping, PBR texturing, and Unreal Engine integration.</p>
+            <div class="languages-section mt-4">
+              <h3 class="timeline-title" style="margin-top:30px">Languages</h3>
+              <p class="bio-text">Tamil (Native) &nbsp;·&nbsp; English (Professional Proficiency)</p>
             </div>
-          </div>
-          <div class="exp-item reveal">
-            <div class="exp-number">02</div>
-            <div class="exp-body">
-              <div class="exp-header">
-                <h3>Predator-Inspired Character &amp; Spaceship</h3>
-                <span class="exp-tag">ZBrush · Personal</span>
-              </div>
-              <p class="exp-org">Personal Project · 2026</p>
-              <p class="exp-desc">High-detail sci-fi creature with armor, hard-surface components, and a complementary spaceship. Full pipeline — sculpt, retopo, UV, bake, render.</p>
-            </div>
-          </div>
-          <div class="exp-item reveal">
-            <div class="exp-number">03</div>
-            <div class="exp-body">
-              <div class="exp-header">
-                <h3>Level Design Practice</h3>
-                <span class="exp-tag">Unreal Engine · Blender</span>
-              </div>
-              <p class="exp-org">Personal Project · 2025–2026</p>
-              <p class="exp-desc">Forest environment in Unreal Engine. Street and bar concepts in Blender and Maya. Focused on lighting, prop placement, and atmosphere.</p>
+
+            <div class="languages-section mt-4">
+              <h3 class="timeline-title" style="margin-top:20px">Availability</h3>
+              <p class="bio-text">Open to relocation and full-time opportunities (On-site / Remote).</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="skills" class="skills">
-      <div class="container">
-        <div class="section-label">03 — SKILLS</div>
-        <h2 class="section-title reveal">Technical <em>Arsenal</em></h2>
-        <div class="skills-grid">
-          <div class="skill-group reveal">
-            <h3 class="skill-group-title">Character &amp; Sculpting</h3>
-            <div class="skill-bar-list">
-              <div class="skill-bar-item">
-                <div class="skill-bar-label"><span>ZBrush</span><span class="skill-pct">95%</span></div>
-                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div>
-              </div>
-              <div class="skill-bar-item">
-                <div class="skill-bar-label"><span>Character Modeling</span><span class="skill-pct">88%</span></div>
-                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div>
-              </div>
-            </div>
-          </div>
-          <div class="skill-group reveal">
-            <h3 class="skill-group-title">3D Modeling</h3>
-            <div class="skill-bar-list">
-              <div class="skill-bar-item">
-                <div class="skill-bar-label"><span>Autodesk Maya</span><span class="skill-pct">85%</span></div>
-                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
-              </div>
-              <div class="skill-bar-item">
-                <div class="skill-bar-label"><span>Blender</span><span class="skill-pct">78%</span></div>
-                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="78"></div></div>
-              </div>
-            </div>
-          </div>
-          <div class="skill-group reveal">
-            <h3 class="skill-group-title">Texturing</h3>
-            <div class="skill-bar-list">
-              <div class="skill-bar-item">
-                <div class="skill-bar-label"><span>Substance 3D Painter</span><span class="skill-pct">82%</span></div>
-                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div>
-              </div>
-              <div class="skill-bar-item">
-                <div class="skill-bar-label"><span>Baking Workflow</span><span class="skill-pct">80%</span></div>
-                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
-              </div>
-            </div>
-          </div>
-          <div class="skill-group reveal">
-            <h3 class="skill-group-title">Game Engines</h3>
-            <div class="skill-bar-list">
-              <div class="skill-bar-item">
-                <div class="skill-bar-label"><span>Unreal Engine</span><span class="skill-pct">80%</span></div>
-                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
-              </div>
-              <div class="skill-bar-item">
-                <div class="skill-bar-label"><span>Unity 3D</span><span class="skill-pct">65%</span></div>
-                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="65"></div></div>
-              </div>
-            </div>
-          </div>
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience" class="experience-section">
+      <div class="container section-padding">
+        <div class="section-header">
+          <h2>Experience &amp; Notable Projects</h2>
+          <div class="header-line"></div>
         </div>
-        <div class="badges-wrap reveal">
-          <span class="badge">Human Anatomy</span>
-          <span class="badge">Creature Design</span>
-          <span class="badge">Hard Surface</span>
-          <span class="badge">PBR Workflow</span>
-          <span class="badge">VR Development</span>
-          <span class="badge">Level Design</span>
-          <span class="badge">Real-Time Assets</span>
-          <span class="badge">Retopology</span>
-          <span class="badge">UV Mapping</span>
+
+        <div class="timeline">
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot glow-yellow"></div>
+            <div class="timeline-content">
+              <h4>Medical VR Anatomy Training Application – Unreal Engine</h4>
+              <p class="timeline-date">Sri Lalithambigai Medical College &amp; Hospital (Dr MGR Educational and Research Institute) &nbsp;·&nbsp; Sep 2025 – Feb 2026 &nbsp;·&nbsp; Real-Time Medical VR Project</p>
+              <p class="timeline-desc">Collaborated on the development of an interactive VR application designed to help medical students study human anatomy in an immersive 3D environment. Sculpted high-resolution anatomical models including heart, brain, stomach, and liver in ZBrush, focusing on anatomical accuracy, proportion, and refined surface detailing. Converted high-poly sculpts into optimized game-ready assets through retopology and efficient UV mapping. Assisted in texture baking and PBR material setup for real-time performance, and integrated assets into Unreal Engine for VR interaction and real-time rendering.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h4>Predator-Inspired Character &amp; Sci-Fi Spaceship</h4>
+              <p class="timeline-date">Personal Project &nbsp;·&nbsp; 2026</p>
+              <p class="timeline-desc">Designed and sculpted a high-detail sci-fi character inspired by the Predator universe, along with a complementary spaceship asset to build a cohesive visual narrative. Sculpted a high-resolution creature character in ZBrush, focusing on anatomy, muscular structure, and surface detailing. Developed intricate hard-surface elements including armor and mechanical components. Performed retopology and UV mapping for optimized real-time performance, baked normal maps, and created cinematic lighting and presentation renders for portfolio display.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h4>Level Design Practice – Unreal Engine &amp; Blender</h4>
+              <p class="timeline-date">Personal Project &nbsp;·&nbsp; 2025 – 2026</p>
+              <p class="timeline-desc">Designed a forest environment level in Unreal Engine as part of a semester project, focusing on environment composition, lighting, and scene layout. Developed street and bar environment concepts using Blender and Autodesk Maya. Practiced level layout, prop placement, and atmosphere creation to support storytelling in real-time environments. Explored lighting and scene composition techniques for immersive environment presentation.</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <section id="portfolio" class="portfolio">
-      <div class="container">
-        <div class="section-label">04 — PORTFOLIO</div>
-        <h2 class="section-title reveal">Selected <em>Works</em></h2>
-        <div class="portfolio-grid">
-          <div class="port-item reveal" data-project="batmobile">
-            <div class="port-img-wrap">
-              <img src="images/projects/batmobile/1.jpg" alt="Batmobile" loading="lazy">
-              <div class="port-overlay"><span>View Catalog →</span></div>
+    <!-- ===== SKILLS ===== -->
+    <section id="skills" class="skills-section">
+      <div class="container section-padding">
+        <div class="section-header">
+          <h2>Technical Skills &amp; Competencies</h2>
+          <div class="header-line"></div>
+        </div>
+
+        <div class="skills-category reveal">
+          <h3 class="skill-cat-title">Character Art &amp; Sculpting</h3>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <h3>ZBrush</h3>
+              <p>High-Resolution Sculpting, Anatomy Development, Creature Creation, Surface Detailing</p>
             </div>
-            <div class="port-info"><h3>Batmobile</h3><p>Hard Surface Modeling</p></div>
-          </div>
-          <div class="port-item reveal" data-project="bear">
-            <div class="port-img-wrap">
-              <img src="images/projects/bear/1.jpg" alt="Bear Character" loading="lazy">
-              <div class="port-overlay"><span>View Catalog →</span></div>
+            <div class="skill-card">
+              <h3>Character Modeling</h3>
+              <p>Stylized &amp; Realistic Characters, Hard-Surface Integration, Secondary &amp; Tertiary Detail Refinement</p>
             </div>
-            <div class="port-info"><h3>Bear Character</h3><p>3D Character Sculpt</p></div>
           </div>
-          <div class="port-item reveal" data-project="demon">
-            <div class="port-img-wrap">
-              <img src="images/projects/demon/1.jpg" alt="Demon Character" loading="lazy">
-              <div class="port-overlay"><span>View Catalog →</span></div>
+        </div>
+
+        <div class="skills-category reveal" style="margin-top:40px">
+          <h3 class="skill-cat-title">3D Modeling &amp; Asset Development</h3>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <h3>Autodesk Maya</h3>
+              <p>Modeling, Retopology, UV Mapping, Basic Rigging, Basic Animation</p>
             </div>
-            <div class="port-info"><h3>Demon Character</h3><p>ZBrush Sculpt</p></div>
-          </div>
-          <div class="port-item reveal" data-project="detailed-robot">
-            <div class="port-img-wrap">
-              <img src="images/projects/detailed%20robot/1.jpg" alt="Detailed Robot" loading="lazy">
-              <div class="port-overlay"><span>View Catalog →</span></div>
+            <div class="skill-card">
+              <h3>Blender</h3>
+              <p>Modeling, Scene Setup</p>
             </div>
-            <div class="port-info"><h3>Detailed Robot</h3><p>Hard Surface Model</p></div>
-          </div>
-          <div class="port-item reveal" data-project="dino">
-            <div class="port-img-wrap">
-              <img src="images/projects/dino/1.jpg" alt="Dinosaur" loading="lazy">
-              <div class="port-overlay"><span>View Catalog →</span></div>
+            <div class="skill-card">
+              <h3>Asset Optimization</h3>
+              <p>Modular Asset Creation, Environment Props, Game-Ready Asset Optimization, Level Design &amp; Environment Layout</p>
             </div>
-            <div class="port-info"><h3>Dinosaur</h3><p>Creature Sculpt</p></div>
           </div>
-          <div class="port-item reveal" data-project="elf">
-            <div class="port-img-wrap">
-              <img src="images/projects/elf/1.jpg" alt="Elf Character" loading="lazy">
-              <div class="port-overlay"><span>View Catalog →</span></div>
+        </div>
+
+        <div class="skills-category reveal" style="margin-top:40px">
+          <h3 class="skill-cat-title">Texturing &amp; Materials</h3>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <h3>Substance 3D Painter</h3>
+              <p>PBR Texturing, Material Authoring, Texture Baking</p>
             </div>
-            <div class="port-info"><h3>Elf Character</h3><p>Fantasy Character</p></div>
-          </div>
-          <div class="port-item reveal" data-project="samurai">
-            <div class="port-img-wrap">
-              <img src="images/projects/samurai/1.jpg" alt="Samurai" loading="lazy">
-              <div class="port-overlay"><span>View Catalog →</span></div>
+            <div class="skill-card">
+              <h3>Baking Workflow</h3>
+              <p>UV Layout Optimization, Normal, AO &amp; Map Baking</p>
             </div>
-            <div class="port-info"><h3>Samurai</h3><p>Character Design</p></div>
           </div>
-          <div class="port-item reveal" data-project="scfi">
-            <div class="port-img-wrap">
-              <img src="images/projects/scfi/1.jpg" alt="Sci-Fi Asset" loading="lazy">
-              <div class="port-overlay"><span>View Catalog →</span></div>
+        </div>
+
+        <div class="skills-category reveal" style="margin-top:40px">
+          <h3 class="skill-cat-title">Real-Time &amp; Engine Workflow</h3>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <h3>Unreal Engine</h3>
+              <p>Asset Integration, Lighting, Blueprint Basics, Material Setup, VR Optimization</p>
             </div>
-            <div class="port-info"><h3>Sci-Fi Asset</h3><p>Game Ready Asset</p></div>
-          </div>
-          <div class="port-item reveal" data-project="spaceship">
-            <div class="port-img-wrap">
-              <img src="images/projects/spaceship/1.jpg" alt="Spaceship" loading="lazy">
-              <div class="port-overlay"><span>View Catalog →</span></div>
+            <div class="skill-card">
+              <h3>Unity 3D</h3>
+              <p>Scene Assembly, Lighting Setup, Basic Scripting Knowledge</p>
             </div>
-            <div class="port-info"><h3>Spaceship</h3><p>Vehicle Design</p></div>
           </div>
-          <div class="port-item reveal" data-project="witch">
-            <div class="port-img-wrap">
-              <img src="images/projects/witch/1.jpg" alt="Witch Character" loading="lazy">
-              <div class="port-overlay"><span>View Catalog →</span></div>
+        </div>
+
+        <div class="skills-category reveal" style="margin-top:40px">
+          <h3 class="skill-cat-title">Additional Tools</h3>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <h3>Adobe Photoshop</h3>
+              <p>Texture Editing &amp; Presentation</p>
             </div>
-            <div class="port-info"><h3>Witch Character</h3><p>Stylized Character</p></div>
+            <div class="skill-card">
+              <h3>Adobe Illustrator</h3>
+              <p>Basic Graphic Support</p>
+            </div>
+            <div class="skill-card">
+              <h3>DaVinci Resolve</h3>
+              <p>Basic Video Editing &amp; Showreel Editing</p>
+            </div>
+            <div class="skill-card">
+              <h3>Adobe XD &amp; Figma</h3>
+              <p>Basic UI Prototyping &amp; Wireframing</p>
+            </div>
           </div>
+        </div>
+
+        <div class="skills-category reveal" style="margin-top:40px">
+          <h3 class="skill-cat-title" style="color:var(--gold)">Core Competencies</h3>
+          <div class="competencies-list">
+            <span class="comp-badge">Human &amp; Creature Anatomy</span>
+            <span class="comp-badge">Advanced Form &amp; Silhouette Development</span>
+            <span class="comp-badge">Detail-Oriented Sculpting Workflow</span>
+            <span class="comp-badge">Real-Time Asset Production</span>
+            <span class="comp-badge">Visual Storytelling through Character Design</span>
+            <span class="comp-badge">Level Design &amp; Environment Layout</span>
+            <span class="comp-badge">VR Environment Development</span>
+            <span class="comp-badge">Efficient Team Collaboration</span>
+            <span class="comp-badge">Adaptability to Feedback &amp; Iteration</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== PORTFOLIO ===== -->
+    <section id="portfolio" class="portfolio-section">
+      <div class="container section-padding">
+        <div class="section-header">
+          <h2>Portfolio</h2>
+          <div class="header-line"></div>
+        </div>
+
+        <div class="portfolio-grid" id="portfolio-grid">
+
+          <div class="portfolio-item reveal" data-project="batmobile">
+            <img src="images/projects/batmobile/1.jpg" alt="Batmobile Project" loading="lazy">
+            <div class="portfolio-overlay">
+              <h3>Batmobile</h3>
+              <p>Hard Surface Modeling</p>
+              <span class="view-project">View Catalog &rarr;</span>
+            </div>
+            <div class="emission-border"></div>
+          </div>
+
+          <div class="portfolio-item reveal" data-project="bear">
+            <img src="images/projects/bear/1.jpg" alt="Bear Character" loading="lazy">
+            <div class="portfolio-overlay">
+              <h3>Bear Character</h3>
+              <p>3D Character Sculpt</p>
+              <span class="view-project">View Catalog &rarr;</span>
+            </div>
+            <div class="emission-border"></div>
+          </div>
+
+          <div class="portfolio-item reveal" data-project="demon">
+            <img src="images/projects/demon/1.jpg" alt="Demon Character" loading="lazy">
+            <div class="portfolio-overlay">
+              <h3>Demon Character</h3>
+              <p>ZBrush Sculpt</p>
+              <span class="view-project">View Catalog &rarr;</span>
+            </div>
+            <div class="emission-border"></div>
+          </div>
+
+          <div class="portfolio-item reveal" data-project="detailed-robot">
+            <img src="images/projects/detailed%20robot/1.jpg" alt="Detailed Robot" loading="lazy">
+            <div class="portfolio-overlay">
+              <h3>Detailed Robot</h3>
+              <p>Hard Surface Model</p>
+              <span class="view-project">View Catalog &rarr;</span>
+            </div>
+            <div class="emission-border"></div>
+          </div>
+
+          <div class="portfolio-item reveal" data-project="dino">
+            <img src="images/projects/dino/1.jpg" alt="Dinosaur Sculpt" loading="lazy">
+            <div class="portfolio-overlay">
+              <h3>Dinosaur</h3>
+              <p>Creature Sculpt</p>
+              <span class="view-project">View Catalog &rarr;</span>
+            </div>
+            <div class="emission-border"></div>
+          </div>
+
+          <div class="portfolio-item reveal" data-project="elf">
+            <img src="images/projects/elf/1.jpg" alt="Elf Character" loading="lazy">
+            <div class="portfolio-overlay">
+              <h3>Elf Character</h3>
+              <p>Fantasy Character</p>
+              <span class="view-project">View Catalog &rarr;</span>
+            </div>
+            <div class="emission-border"></div>
+          </div>
+
+          <div class="portfolio-item reveal" data-project="samurai">
+            <img src="images/projects/samurai/1.jpg" alt="Samurai Character" loading="lazy">
+            <div class="portfolio-overlay">
+              <h3>Samurai</h3>
+              <p>Character Design</p>
+              <span class="view-project">View Catalog &rarr;</span>
+            </div>
+            <div class="emission-border"></div>
+          </div>
+
+          <div class="portfolio-item reveal" data-project="scfi">
+            <img src="images/projects/scfi/1.jpg" alt="Sci-Fi Asset" loading="lazy">
+            <div class="portfolio-overlay">
+              <h3>Sci-Fi Asset</h3>
+              <p>Game Ready Asset</p>
+              <span class="view-project">View Catalog &rarr;</span>
+            </div>
+            <div class="emission-border"></div>
+          </div>
+
+          <div class="portfolio-item reveal" data-project="spaceship">
+            <img src="images/projects/spaceship/1.jpg" alt="Spaceship Model" loading="lazy">
+            <div class="portfolio-overlay">
+              <h3>Spaceship</h3>
+              <p>Vehicle Design</p>
+              <span class="view-project">View Catalog &rarr;</span>
+            </div>
+            <div class="emission-border"></div>
+          </div>
+
+          <div class="portfolio-item reveal" data-project="witch">
+            <img src="images/projects/witch/1.jpg" alt="Witch Character" loading="lazy">
+            <div class="portfolio-overlay">
+              <h3>Witch Character</h3>
+              <p>Stylized Character</p>
+              <span class="view-project">View Catalog &rarr;</span>
+            </div>
+            <div class="emission-border"></div>
+          </div>
+
+          <div class="portfolio-item reveal" data-project="vrhospital">
+            <img src="images/projects/VrHospital/1.jpg" alt="Medical VR" loading="lazy">
+            <div class="portfolio-overlay">
+              <h3>Medical VR Anatomy</h3>
+              <p>VR / Unreal Engine</p>
+              <span class="view-project">View Catalog &rarr;</span>
+            </div>
+            <div class="emission-border"></div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <section id="contact" class="contact">
-      <div class="container">
-        <div class="section-label">05 — CONTACT</div>
-        <h2 class="section-title reveal">Let's <em>Work Together</em></h2>
-        <p class="contact-sub reveal">Available for full-time studio opportunities, collaborative projects, and networking.</p>
-        <div class="contact-grid reveal">
-          <a href="mailto:youremail@gmail.com" class="contact-card">
-            <div class="cc-icon">✉</div>
-            <div><h4>Email</h4><p>youremail@gmail.com</p></div>
-            <span class="cc-arrow">→</span>
-          </a>
-          <a href="tel:+918148275090" class="contact-card">
-            <div class="cc-icon">✆</div>
-            <div><h4>Phone</h4><p>+91 814 827 5090</p></div>
-            <span class="cc-arrow">→</span>
-          </a>
-          <a href="https://sanjay-portfolio-hazel.vercel.app/" target="_blank" class="contact-card">
-            <div class="cc-icon">⊕</div>
-            <div><h4>Portfolio</h4><p>sanjay-portfolio-hazel.vercel.app</p></div>
-            <span class="cc-arrow">→</span>
-          </a>
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="contact-section">
+      <div class="container section-padding">
+
+        <div class="status-banner reveal">
+          <div class="status-dot"></div>
+          <p>Open to relocation and full-time opportunities (On-site / Remote).</p>
         </div>
-        <div class="availability reveal">
-          <div class="avail-dot"></div>
-          <span>Open to relocation · Full-time · On-site / Remote</span>
+
+        <div class="contact-card reveal">
+          <h2>Get In Touch</h2>
+          <p>Available for full-time studio opportunities, collaborative projects, and networking.</p>
+
+          <div class="contact-links">
+            <a href="mailto:youremail@gmail.com" class="contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <span>youremail@gmail.com</span>
+            </a>
+            <a href="tel:+918148275090" class="contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>+91 814 827 5090</span>
+            </a>
+            <a href="https://sanjay-portfolio-hazel.vercel.app/" target="_blank" rel="noopener noreferrer" class="contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+              <span>sanjay-portfolio-hazel.vercel.app</span>
+            </a>
+          </div>
         </div>
+
       </div>
     </section>
 
   </main>
 
   <footer>
-    <div class="container footer-inner">
-      <span class="footer-logo">SS.</span>
+    <div class="container">
       <p>&copy; <span id="year"></span> Sanjay S. All Rights Reserved.</p>
-      <p class="footer-role">3D Character Artist</p>
+      <p class="footer-sub">3D Character Artist | Game Art &amp; Real-Time Development</p>
     </div>
   </footer>
 
-  <div id="modal" class="modal">
+  <!-- Portfolio Modal -->
+  <div id="project-modal" class="modal">
     <div class="modal-backdrop"></div>
-    <div class="modal-box">
-      <button class="modal-close">&times;</button>
-      <div class="modal-inner">
-        <div class="modal-head">
-          <h2 id="modal-title"></h2>
-          <p id="modal-desc"></p>
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <div class="modal-body">
+        <div class="modal-header">
+          <h2 id="modal-title">Project Title</h2>
+          <p id="modal-desc">Project Description</p>
         </div>
         <div class="modal-gallery" id="modal-gallery"></div>
       </div>
