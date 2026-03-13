@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'detailed-robot': {
       title: 'Detailed Robot',
       desc: 'Hard Surface Model — A fully modeled robotic character with clean topology, intricate mechanical parts, and PBR-ready surfaces.',
-      images: Array.from({ length: 4 }, (_, i) => `images/projects/detailed-robot/${i + 1}.jpg`),
+      images: Array.from({ length: 4 }, (_, i) => `images/projects/detailed%20robot/${i + 1}.jpg`),
     },
     dino: {
       title: 'Dinosaur',
@@ -297,3 +297,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
