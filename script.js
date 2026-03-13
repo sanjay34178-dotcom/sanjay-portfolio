@@ -117,14 +117,15 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ----------------------------------------------------------
      5. PORTFOLIO MODAL
   ---------------------------------------------------------- */
-  const modal       = document.getElementById('project-modal');
-  const modalTitle  = document.getElementById('modal-title');
-  const modalDesc   = document.getElementById('modal-desc');
+  const modal        = document.getElementById('project-modal');
+  const modalTitle   = document.getElementById('modal-title');
+  const modalDesc    = document.getElementById('modal-desc');
   const modalGallery = document.getElementById('modal-gallery');
-  const closeBtn    = document.querySelector('.close-modal');
-  const backdrop    = document.querySelector('.modal-backdrop');
+  const closeBtn     = document.querySelector('.close-modal');
+  const backdrop     = document.querySelector('.modal-backdrop');
 
-  // Project data — maps project folder name to metadata
+  // FIX: "detailed robot" renamed to "detailed-robot" (no spaces in folder name)
+  // Make sure you also rename the actual folder on disk to "detailed-robot"
   const projects = {
     batmobile: {
       title: 'Batmobile',
@@ -141,10 +142,11 @@ document.addEventListener('DOMContentLoaded', () => {
       desc: 'ZBrush Sculpt — High-resolution creature sculpt focusing on menacing silhouette, organic surface detail, and secondary form refinement.',
       images: Array.from({ length: 4 }, (_, i) => `images/projects/demon/${i + 1}.jpg`),
     },
-    'detailed robot': {
+    // FIX: key changed from 'detailed robot' to 'detailed-robot'
+    'detailed-robot': {
       title: 'Detailed Robot',
       desc: 'Hard Surface Model — A fully modeled robotic character with clean topology, intricate mechanical parts, and PBR-ready surfaces.',
-      images: Array.from({ length: 4 }, (_, i) => `images/projects/detailed robot/${i + 1}.jpg`),
+      images: Array.from({ length: 4 }, (_, i) => `images/projects/detailed-robot/${i + 1}.jpg`),
     },
     dino: {
       title: 'Dinosaur',
@@ -178,12 +180,6 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   };
 
-  // Derive project key from image src path
-  const getProjectKey = (imgSrc) => {
-    const match = imgSrc.match(/images\/projects\/([^/]+)\//);
-    return match ? match[1] : null;
-  };
-
   const openModal = (key) => {
     const data = projects[key];
     if (!data || !modal) return;
@@ -198,8 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
       img.src = src;
       img.alt = data.title;
       img.loading = 'lazy';
-      // Gracefully handle missing images
-      img.onerror = () => img.parentElement && img.remove();
+      // Gracefully remove image element if file doesn't exist
+      img.onerror = () => { if (img.parentElement) img.remove(); };
       modalGallery.appendChild(img);
     });
 
@@ -214,17 +210,16 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => { modalGallery.innerHTML = ''; }, 300);
   };
 
-  // Attach click listeners to portfolio items
+  // FIX: Use data-project attribute instead of parsing the img src path
+  // This avoids issues with spaces or special characters in folder names
   document.querySelectorAll('.portfolio-item').forEach((item) => {
     item.addEventListener('click', () => {
-      const img = item.querySelector('img');
-      if (!img) return;
-      const key = getProjectKey(img.getAttribute('src'));
+      const key = item.getAttribute('data-project');
       if (key) openModal(key);
     });
   });
 
-  if (closeBtn)  closeBtn.addEventListener('click', closeModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
   if (backdrop)  backdrop.addEventListener('click', closeModal);
 
   document.addEventListener('keydown', (e) => {
