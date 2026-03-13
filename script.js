@@ -1,28 +1,23 @@
 /* ============================================================
-   SANJAY S — CINEMATIC PORTFOLIO SCRIPT
+   SANJAY S — PORTFOLIO SCRIPT
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ----------------------------------------------------------
-     1. CURSOR — dot + ring + canvas trail
+     1. CUSTOM CURSOR + TRAIL
   ---------------------------------------------------------- */
-  const dot  = document.querySelector('.cursor-dot');
-  const ring = document.querySelector('.cursor-ring');
+  const dot        = document.querySelector('.cursor-dot');
+  const ring       = document.querySelector('.cursor-ring');
   const trailCanvas = document.getElementById('cursor-trail');
-  const ctx = trailCanvas ? trailCanvas.getContext('2d') : null;
-
+  const ctx        = trailCanvas ? trailCanvas.getContext('2d') : null;
   let mx = window.innerWidth / 2, my = window.innerHeight / 2;
   let rx = mx, ry = my;
   const trail = [];
-  const TRAIL_LEN = 22;
 
   if (trailCanvas) {
-    trailCanvas.width  = window.innerWidth;
-    trailCanvas.height = window.innerHeight;
-    window.addEventListener('resize', () => {
-      trailCanvas.width  = window.innerWidth;
-      trailCanvas.height = window.innerHeight;
-    });
+    const resize = () => { trailCanvas.width = window.innerWidth; trailCanvas.height = window.innerHeight; };
+    resize();
+    window.addEventListener('resize', resize);
   }
 
   document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
@@ -30,63 +25,52 @@ document.addEventListener('DOMContentLoaded', () => {
   if (dot && ring) {
     document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
     document.addEventListener('mouseenter', () => { dot.style.opacity = '1'; ring.style.opacity = '1'; });
-
-    const hoverEls = document.querySelectorAll('a,button,.port-item,.badge,.contact-card,.hamburger');
-    hoverEls.forEach(el => {
-      el.addEventListener('mouseenter', () => ring.classList.add('hover'));
-      el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+    document.querySelectorAll('a, button, .portfolio-item, .skill-card, .comp-badge, .hamburger, .contact-item').forEach(el => {
+      el.addEventListener('mouseenter', () => ring.classList.add('expand'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('expand'));
     });
   }
 
-  function animateCursor() {
+  (function animateCursor() {
     rx += (mx - rx) * 0.10;
     ry += (my - ry) * 0.10;
-
-    if (dot)  { dot.style.left  = mx + 'px'; dot.style.top  = my + 'px'; }
+    if (dot)  { dot.style.left = mx + 'px'; dot.style.top = my + 'px'; }
     if (ring) { ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; }
-
-    if (ctx) {
-      trail.push({ x: mx, y: my, life: 1 });
-      if (trail.length > TRAIL_LEN) trail.shift();
-
+    if (ctx && trailCanvas) {
+      trail.push({ x: mx, y: my });
+      if (trail.length > 18) trail.shift();
       ctx.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
-      for (let i = 0; i < trail.length; i++) {
-        const t = trail[i];
-        const alpha = (i / trail.length) * 0.35;
-        const radius = (i / trail.length) * 4;
-        ctx.beginPath();
-        ctx.arc(t.x, t.y, radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(245,197,24,${alpha})`;
-        ctx.fill();
-      }
+      trail.forEach((p, i) => {
+        const a = (i / trail.length) * 0.28;
+        const r = (i / trail.length) * 3;
+        ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(232,184,75,${a})`; ctx.fill();
+      });
     }
-
     requestAnimationFrame(animateCursor);
-  }
-  animateCursor();
+  })();
 
   /* ----------------------------------------------------------
      2. NAVBAR SCROLL
   ---------------------------------------------------------- */
   const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-  }, { passive: true });
+  const handleNavScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 60);
+  window.addEventListener('scroll', handleNavScroll, { passive: true });
+  handleNavScroll();
 
   /* ----------------------------------------------------------
-     3. HAMBURGER
+     3. HAMBURGER MENU
   ---------------------------------------------------------- */
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.getElementById('nav-links');
-
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navLinks.classList.toggle('open');
       document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
     });
-    navLinks.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navLinks.classList.remove('open');
         document.body.style.overflow = '';
@@ -106,93 +90,40 @@ document.addEventListener('DOMContentLoaded', () => {
   ---------------------------------------------------------- */
   const revealObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        revealObs.unobserve(e.target);
-      }
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
   document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
   /* ----------------------------------------------------------
-     5. HERO PARTICLE CANVAS
+     5. HERO CANVAS PARTICLES
   ---------------------------------------------------------- */
   const heroCanvas = document.getElementById('hero-canvas');
   if (heroCanvas) {
-    const hctx = heroCanvas.getContext('2d');
-    heroCanvas.width  = window.innerWidth;
-    heroCanvas.height = window.innerHeight;
-    window.addEventListener('resize', () => {
-      heroCanvas.width  = window.innerWidth;
-      heroCanvas.height = window.innerHeight;
-    });
-
-    const particles = Array.from({ length: 60 }, () => ({
-      x: Math.random() * heroCanvas.width,
-      y: Math.random() * heroCanvas.height,
-      r: Math.random() * 1.5 + 0.3,
-      dx: (Math.random() - 0.5) * 0.3,
-      dy: -Math.random() * 0.4 - 0.1,
-      alpha: Math.random() * 0.5 + 0.1,
+    const hc = heroCanvas.getContext('2d');
+    const resizeHero = () => { heroCanvas.width = window.innerWidth; heroCanvas.height = window.innerHeight; };
+    resizeHero(); window.addEventListener('resize', resizeHero);
+    const pts = Array.from({ length: 50 }, () => ({
+      x: Math.random() * heroCanvas.width, y: Math.random() * heroCanvas.height,
+      r: Math.random() * 1.3 + 0.2, dx: (Math.random() - .5) * .22,
+      dy: -Math.random() * .32 - .04, a: Math.random() * .4 + .07,
     }));
-
-    function drawParticles() {
-      hctx.clearRect(0, 0, heroCanvas.width, heroCanvas.height);
-      particles.forEach(p => {
-        hctx.beginPath();
-        hctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        hctx.fillStyle = `rgba(245,197,24,${p.alpha})`;
-        hctx.fill();
+    (function drawHero() {
+      hc.clearRect(0, 0, heroCanvas.width, heroCanvas.height);
+      pts.forEach(p => {
+        hc.beginPath(); hc.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        hc.fillStyle = `rgba(232,184,75,${p.a})`; hc.fill();
         p.x += p.dx; p.y += p.dy;
-        if (p.y < -5) { p.y = heroCanvas.height + 5; p.x = Math.random() * heroCanvas.width; }
+        if (p.y < -4) { p.y = heroCanvas.height + 4; p.x = Math.random() * heroCanvas.width; }
         if (p.x < 0 || p.x > heroCanvas.width) p.dx *= -1;
       });
-      requestAnimationFrame(drawParticles);
-    }
-    drawParticles();
+      requestAnimationFrame(drawHero);
+    })();
   }
 
   /* ----------------------------------------------------------
-     6. HERO COUNTER ANIMATION
+     6. ACTIVE NAV LINK ON SCROLL
   ---------------------------------------------------------- */
-  const counters = document.querySelectorAll('.count');
-  const counterObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const target = +e.target.dataset.target;
-        let current = 0;
-        const step  = target / 40;
-        const timer = setInterval(() => {
-          current += step;
-          if (current >= target) { current = target; clearInterval(timer); }
-          e.target.textContent = Math.floor(current);
-        }, 35);
-        counterObs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.5 });
-  counters.forEach(c => counterObs.observe(c));
-
-  /* ----------------------------------------------------------
-     7. SKILL BAR ANIMATION
-  ---------------------------------------------------------- */
-  const barObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
-          bar.style.width = bar.dataset.width + '%';
-        });
-        barObs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.3 });
-  document.querySelectorAll('.skill-group').forEach(g => barObs.observe(g));
-
-  /* ----------------------------------------------------------
-     8. ACTIVE NAV
-  ---------------------------------------------------------- */
-  const sections   = document.querySelectorAll('section[id]');
   const navAnchors = document.querySelectorAll('.nav-links a');
   const secObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -202,61 +133,116 @@ document.addEventListener('DOMContentLoaded', () => {
         if (active) active.classList.add('active');
       }
     });
-  }, { threshold: 0.4 });
-  sections.forEach(s => secObs.observe(s));
+  }, { threshold: 0.35 });
+  document.querySelectorAll('section[id]').forEach(s => secObs.observe(s));
 
   /* ----------------------------------------------------------
-     9. SMOOTH SCROLL
+     7. SMOOTH SCROLL
   ---------------------------------------------------------- */
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const id = a.getAttribute('href');
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+      const id = anchor.getAttribute('href');
       if (id === '#') return;
       const target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      const offset = (navbar ? navbar.offsetHeight : 70) + 16;
+      const offset = navbar ? navbar.offsetHeight + 16 : 80;
       window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
     });
   });
 
   /* ----------------------------------------------------------
-     10. HERO VIDEO PARALLAX
+     8. HERO VIDEO PARALLAX
   ---------------------------------------------------------- */
-  const heroVid = document.querySelector('.hero-video');
-  if (heroVid) {
+  const heroVideo = document.querySelector('.hero-video');
+  if (heroVideo) {
     window.addEventListener('scroll', () => {
-      if (window.scrollY < window.innerHeight) {
-        heroVid.style.transform = `translate(-50%,calc(-50% + ${window.scrollY * 0.2}px))`;
-      }
+      if (window.scrollY < window.innerHeight)
+        heroVideo.style.transform = `translate(-50%, calc(-50% + ${window.scrollY * 0.2}px))`;
     }, { passive: true });
   }
 
   /* ----------------------------------------------------------
-     11. PORTFOLIO MODAL
+     9. SKILL CARD STAGGER
   ---------------------------------------------------------- */
-  const modal   = document.getElementById('modal');
-  const mTitle  = document.getElementById('modal-title');
-  const mDesc   = document.getElementById('modal-desc');
-  const mGal    = document.getElementById('modal-gallery');
-  const mClose  = document.querySelector('.modal-close');
-  const mBack   = document.querySelector('.modal-backdrop');
+  document.querySelectorAll('.skills-category').forEach(cat => {
+    cat.querySelectorAll('.skill-card').forEach((card, i) => {
+      card.style.transitionDelay = `${i * 0.06}s`;
+    });
+  });
+
+  /* ----------------------------------------------------------
+     10. PORTFOLIO MODAL
+     Exact image lists based on actual folder contents
+  ---------------------------------------------------------- */
+  const modal    = document.getElementById('project-modal');
+  const mTitle   = document.getElementById('modal-title');
+  const mDesc    = document.getElementById('modal-desc');
+  const mGal     = document.getElementById('modal-gallery');
+  const closeBtn = document.querySelector('.close-modal');
+  const backdrop = document.querySelector('.modal-backdrop');
 
   const projects = {
-    batmobile:       { title:'Batmobile',        desc:'Hard Surface Modeling — Detailed recreation of the iconic Batmobile.', images: Array.from({length:4},(_,i)=>`images/projects/batmobile/${i+1}.jpg`) },
-    bear:            { title:'Bear Character',   desc:'3D Character Sculpt — Stylized bear with anatomical detail.', images: Array.from({length:4},(_,i)=>`images/projects/bear/${i+1}.jpg`) },
-    demon:           { title:'Demon Character',  desc:'ZBrush Sculpt — High-res creature with organic surface detail.', images: Array.from({length:4},(_,i)=>`images/projects/demon/${i+1}.jpg`) },
-    'detailed-robot':{ title:'Detailed Robot',   desc:'Hard Surface Model — Robotic character with clean topology.', images: Array.from({length:4},(_,i)=>`images/projects/detailed%20robot/${i+1}.jpg`) },
-    dino:            { title:'Dinosaur',         desc:'Creature Sculpt — High-detail dinosaur with realistic skin.', images: Array.from({length:4},(_,i)=>`images/projects/dino/${i+1}.jpg`) },
-    elf:             { title:'Elf Character',    desc:'Fantasy Character — Stylized elf with armor detailing.', images: Array.from({length:4},(_,i)=>`images/projects/elf/${i+1}.jpg`) },
-    samurai:         { title:'Samurai',          desc:'Character Design — Warrior combining armor and organic sculpting.', images: Array.from({length:4},(_,i)=>`images/projects/samurai/${i+1}.jpg`) },
-    scfi:            { title:'Sci-Fi Asset',     desc:'Game Ready Asset — Sci-fi prop with baked PBR textures.', images: Array.from({length:4},(_,i)=>`images/projects/scfi/${i+1}.jpg`) },
-    spaceship:       { title:'Spaceship',        desc:'Vehicle Design — Hard-surface spaceship with cinematic renders.', images: Array.from({length:4},(_,i)=>`images/projects/spaceship/${i+1}.jpg`) },
-    witch:           { title:'Witch Character',  desc:'Stylized Character — Witch with expressive design and cloth detail.', images: Array.from({length:4},(_,i)=>`images/projects/witch/${i+1}.jpg`) },
+    batmobile: {
+      title: 'Batmobile',
+      desc:  'Hard Surface Modeling — Detailed recreation of the iconic Batmobile with intricate mechanical components and game-ready optimization.',
+      images: ['images/projects/batmobile/1.jpg','images/projects/batmobile/2.jpg','images/projects/batmobile/3.jpg'],
+    },
+    bear: {
+      title: 'Bear Character',
+      desc:  '3D Character Sculpt — Stylized bear character sculpted with attention to anatomy, fur surface detail, and expressive form.',
+      images: ['images/projects/bear/1.jpg'],
+    },
+    demon: {
+      title: 'Demon Character',
+      desc:  'ZBrush Sculpt — High-resolution creature sculpt focusing on menacing silhouette, organic surface detail, and secondary form refinement.',
+      images: ['images/projects/demon/1.jpg','images/projects/demon/2.jpg','images/projects/demon/3.jpg'],
+    },
+    'detailed-robot': {
+      title: 'Detailed Robot',
+      desc:  'Hard Surface Model — Fully modeled robotic character with clean topology, intricate mechanical parts, and PBR-ready surfaces.',
+      images: ['images/projects/detailed%20robot/1.jpg','images/projects/detailed%20robot/2.jpg','images/projects/detailed%20robot/3.jpg'],
+    },
+    dino: {
+      title: 'Dinosaur',
+      desc:  'Creature Sculpt — High-detail dinosaur sculpt with realistic skin texture, muscular anatomy, and dynamic pose.',
+      images: ['images/projects/dino/1.jpg'],
+    },
+    elf: {
+      title: 'Elf Character',
+      desc:  'Fantasy Character — Stylized elf design blending organic character modeling with hard-surface armor detailing.',
+      images: ['images/projects/elf/1.jpg','images/projects/elf/2.jpg','images/projects/elf/elf%20tex.jpg'],
+    },
+    samurai: {
+      title: 'Samurai',
+      desc:  'Character Design — Fully realized samurai warrior combining intricate armor hard-surface elements with organic facial and body sculpting.',
+      images: ['images/projects/samurai/1.jpg','images/projects/samurai/2.jpg','images/projects/samurai/3.jpg','images/projects/samurai/4.jpg','images/projects/samurai/5.jpg'],
+    },
+    scfi: {
+      title: 'Sci-Fi Asset',
+      desc:  'Game Ready Asset — Sci-fi prop with clean UV mapping, optimized topology, and fully baked PBR textures for real-time engine use.',
+      images: ['images/projects/scfi/1.jpg','images/projects/scfi/2.jpg','images/projects/scfi/3.jpg'],
+    },
+    spaceship: {
+      title: 'Spaceship',
+      desc:  'Vehicle Design — Detailed spaceship model with hard-surface panel work, engine detailing, and cinematic lighting renders.',
+      images: ['images/projects/spaceship/1.jpg','images/projects/spaceship/2.jpg','images/projects/spaceship/3.jpg','images/projects/spaceship/space%20(1).jpg','images/projects/spaceship/space%20(4).jpg','images/projects/spaceship/space%20(6).jpg'],
+    },
+    witch: {
+      title: 'Witch Character',
+      desc:  'Stylized Character — Witch character with expressive design, dynamic cloth simulation elements, and rich surface detailing.',
+      images: ['images/projects/witch/1.jpg','images/projects/witch/2.jpg','images/projects/witch/3.jpg'],
+    },
+    vrhospital: {
+      title: 'Medical VR Anatomy',
+      desc:  'VR Project — Interactive VR application for medical students. Sculpted anatomical models in ZBrush and integrated into Unreal Engine for immersive VR interaction.',
+      images: ['images/projects/VrHospital/1.jpg','images/projects/VrHospital/2.jpg','images/projects/VrHospital/3.jpg'],
+    },
   };
 
   const openModal = key => {
-    const d = projects[key]; if (!d || !modal) return;
+    const d = projects[key];
+    if (!d || !modal) return;
     mTitle.textContent = d.title;
     mDesc.textContent  = d.desc;
     mGal.innerHTML = '';
@@ -274,35 +260,27 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!modal) return;
     modal.classList.remove('open');
     document.body.style.overflow = '';
-    setTimeout(() => { if (mGal) mGal.innerHTML = ''; }, 300);
+    setTimeout(() => { mGal.innerHTML = ''; }, 300);
   };
 
-  document.querySelectorAll('.port-item').forEach(item => {
+  document.querySelectorAll('.portfolio-item').forEach(item => {
     item.addEventListener('click', () => openModal(item.dataset.project));
   });
-  if (mClose) mClose.addEventListener('click', closeModal);
-  if (mBack)  mBack.addEventListener('click', closeModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (backdrop) backdrop.addEventListener('click', closeModal);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
   /* ----------------------------------------------------------
-     12. PAGE TRANSITION on internal links
+     11. PAGE TRANSITION INTRO
   ---------------------------------------------------------- */
-  const pt = document.querySelector('.page-transition');
-  // Subtle flash on first load
-  if (pt) {
-    pt.classList.add('active');
-    setTimeout(() => pt.classList.remove('active'), 600);
-  }
+  const pt = document.getElementById('pt');
+  if (pt) { pt.classList.add('in'); setTimeout(() => pt.classList.remove('in'), 700); }
 
   /* ----------------------------------------------------------
-     13. FOOTER YEAR
+     12. FOOTER YEAR
   ---------------------------------------------------------- */
-  const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  const yr = document.getElementById('year');
+  if (yr) yr.textContent = new Date().getFullYear();
 
 });
 
-/* scrollToTop used by logo click */
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
