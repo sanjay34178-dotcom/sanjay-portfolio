@@ -1,23 +1,23 @@
 /* ============================================================
    SANJAY S — PORTFOLIO SCRIPT
    ============================================================ */
- 
+
 document.addEventListener('DOMContentLoaded', () => {
- 
+
   /* ----------------------------------------------------------
      1. CUSTOM CURSOR
   ---------------------------------------------------------- */
   const cursor = document.querySelector('.cursor-glow');
- 
+
   if (cursor) {
     let mouseX = 0, mouseY = 0;
     let curX = 0, curY = 0;
- 
+
     document.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
     });
- 
+
     // Smooth cursor follow
     const animateCursor = () => {
       curX += (mouseX - curX) * 0.12;
@@ -27,17 +27,17 @@ document.addEventListener('DOMContentLoaded', () => {
       requestAnimationFrame(animateCursor);
     };
     animateCursor();
- 
+
     // Hover effect on interactive elements
     const hoverTargets = document.querySelectorAll(
       'a, button, .portfolio-item, .skill-card, .comp-badge, .hamburger'
     );
- 
+
     hoverTargets.forEach((el) => {
       el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
       el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
     });
- 
+
     // Hide cursor when leaving window
     document.addEventListener('mouseleave', () => {
       cursor.style.opacity = '0';
@@ -46,12 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
       cursor.style.opacity = '1';
     });
   }
- 
+
   /* ----------------------------------------------------------
      2. NAVBAR SCROLL BEHAVIOUR
   ---------------------------------------------------------- */
   const navbar = document.querySelector('.navbar');
- 
+
   const handleNavScroll = () => {
     if (window.scrollY > 60) {
       navbar.classList.add('scrolled');
@@ -59,23 +59,23 @@ document.addEventListener('DOMContentLoaded', () => {
       navbar.classList.remove('scrolled');
     }
   };
- 
+
   window.addEventListener('scroll', handleNavScroll, { passive: true });
   handleNavScroll();
- 
+
   /* ----------------------------------------------------------
      3. HAMBURGER MENU
   ---------------------------------------------------------- */
   const hamburger = document.querySelector('.hamburger');
   const navLinks  = document.querySelector('.nav-links');
- 
+
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navLinks.classList.toggle('open');
       document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
     });
- 
+
     // Close on nav link click
     navLinks.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
       });
     });
- 
+
     // Close on outside click
     document.addEventListener('click', (e) => {
       if (!navbar.contains(e.target)) {
@@ -94,12 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
- 
+
   /* ----------------------------------------------------------
      4. SCROLL REVEAL
   ---------------------------------------------------------- */
   const revealElements = document.querySelectorAll('.reveal');
- 
+
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -111,9 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
   );
- 
+
   revealElements.forEach((el) => revealObserver.observe(el));
- 
+
   /* ----------------------------------------------------------
      5. PORTFOLIO MODAL
   ---------------------------------------------------------- */
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalGallery = document.getElementById('modal-gallery');
   const closeBtn     = document.querySelector('.close-modal');
   const backdrop     = document.querySelector('.modal-backdrop');
- 
+
   // FIX: "detailed robot" renamed to "detailed-robot" (no spaces in folder name)
   // Make sure you also rename the actual folder on disk to "detailed-robot"
   const projects = {
@@ -178,14 +178,14 @@ document.addEventListener('DOMContentLoaded', () => {
       images: Array.from({ length: 4 }, (_, i) => `images/projects/witch/${i + 1}.jpg`),
     },
   };
- 
+
   const openModal = (key) => {
     const data = projects[key];
     if (!data || !modal) return;
- 
+
     modalTitle.textContent = data.title;
     modalDesc.textContent  = data.desc;
- 
+
     // Build gallery
     modalGallery.innerHTML = '';
     data.images.forEach((src) => {
@@ -197,18 +197,18 @@ document.addEventListener('DOMContentLoaded', () => {
       img.onerror = () => { if (img.parentElement) img.remove(); };
       modalGallery.appendChild(img);
     });
- 
+
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
   };
- 
+
   const closeModal = () => {
     if (!modal) return;
     modal.classList.remove('open');
     document.body.style.overflow = '';
     setTimeout(() => { modalGallery.innerHTML = ''; }, 300);
   };
- 
+
   // FIX: Use data-project attribute instead of parsing the img src path
   // This avoids issues with spaces or special characters in folder names
   document.querySelectorAll('.portfolio-item').forEach((item) => {
@@ -217,14 +217,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (key) openModal(key);
     });
   });
- 
+
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
   if (backdrop)  backdrop.addEventListener('click', closeModal);
- 
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
   });
- 
+
   /* ----------------------------------------------------------
      6. SMOOTH SCROLL FOR NAV LINKS
   ---------------------------------------------------------- */
@@ -240,13 +240,13 @@ document.addEventListener('DOMContentLoaded', () => {
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
- 
+
   /* ----------------------------------------------------------
      7. ACTIVE NAV LINK HIGHLIGHT ON SCROLL
   ---------------------------------------------------------- */
   const sections   = document.querySelectorAll('section[id]');
   const navAnchors = document.querySelectorAll('.nav-links a');
- 
+
   const sectionObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -259,14 +259,14 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     { threshold: 0.4 }
   );
- 
+
   sections.forEach((s) => sectionObserver.observe(s));
- 
+
   /* ----------------------------------------------------------
      8. PARALLAX HERO VIDEO
   ---------------------------------------------------------- */
   const heroVideo = document.querySelector('.hero-video');
- 
+
   if (heroVideo) {
     window.addEventListener('scroll', () => {
       const scrolled = window.scrollY;
@@ -276,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, { passive: true });
   }
- 
+
   /* ----------------------------------------------------------
      9. SKILL CARD STAGGER ON REVEAL
   ---------------------------------------------------------- */
@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
       card.style.transitionDelay = `${i * 0.06}s`;
     });
   });
- 
+
   /* ----------------------------------------------------------
      10. FOOTER YEAR (future-proof)
   ---------------------------------------------------------- */
@@ -295,6 +295,5 @@ document.addEventListener('DOMContentLoaded', () => {
     const year = new Date().getFullYear();
     yearEl.innerHTML = yearEl.innerHTML.replace(/\d{4}/, year);
   }
- 
-});
 
+});
