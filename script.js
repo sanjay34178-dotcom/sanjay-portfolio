@@ -203,6 +203,11 @@ document.addEventListener('DOMContentLoaded', () => {
       desc:  'Hard Surface Model — Fully modeled robotic character with clean topology, intricate mechanical parts, and PBR-ready surfaces.',
       images: ['Portfolio/image/projects/detailed-robot/1.jpg','Portfolio/image/projects/detailed-robot/2.jpg','Portfolio/image/projects/detailed-robot/3.jpg'],
     },
+    'detailed-robot': {
+      title: 'Detailed Robot',
+      desc:  'Hard Surface Model — Fully modeled robotic character with clean topology, intricate mechanical parts, and PBR-ready surfaces.',
+      images: ['Portfolio/image/projects/detailed-robot/1.jpg','Portfolio/image/projects/detailed-robot/2.jpg','Portfolio/image/projects/detailed-robot/3.jpg'],
+    },
     dino: {
       title: 'Dinosaur',
       desc:  'Creature Sculpt — High-detail dinosaur sculpt with realistic skin texture, muscular anatomy, and dynamic pose.',
