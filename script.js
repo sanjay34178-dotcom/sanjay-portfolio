@@ -186,57 +186,57 @@ document.addEventListener('DOMContentLoaded', () => {
     batmobile: {
       title: 'Batmobile',
       desc:  'Hard Surface Modeling — Detailed recreation of the iconic Batmobile with intricate mechanical components and game-ready optimization.',
-      images: ['Portfolio/images/projects/batmobile/1.jpg','Portfolio/images/projects/batmobile/2.jpg','Portfolio/images/projects/batmobile/3.jpg'],
+      images: ['Portfolio/image/projects/batmobile/1.jpg','Portfolio/image/projects/batmobile/2.jpg','Portfolio/image/projects/batmobile/3.jpg'],
     },
     bear: {
       title: 'Bear Character',
       desc:  '3D Character Sculpt — Stylized bear character sculpted with attention to anatomy, fur surface detail, and expressive form.',
-      images: ['Portfolio/images/projects/bear/1.jpg'],
+      images: ['Portfolio/image/projects/bear/1.jpg','Portfolio/image/projects/bear/2.jpg'],
     },
     demon: {
       title: 'Demon Character',
       desc:  'ZBrush Sculpt — High-resolution creature sculpt focusing on menacing silhouette, organic surface detail, and secondary form refinement.',
-      images: ['Portfolio/images/projects/demon/1.jpg','Portfolio/images/projects/demon/2.jpg','Portfolio/images/projects/demon/3.jpg'],
+      images: ['Portfolio/image/projects/demon/1.jpg','Portfolio/image/projects/demon/2.jpg','Portfolio/image/projects/demon/3.jpg'],
     },
     'detailed-robot': {
       title: 'Detailed Robot',
       desc:  'Hard Surface Model — Fully modeled robotic character with clean topology, intricate mechanical parts, and PBR-ready surfaces.',
-      images: ['Portfolio/images/projects/detailed%20robot/1.jpg','Portfolio/images/projects/detailed%20robot/2.jpg','Portfolio/images/projects/detailed%20robot/3.jpg'],
+      images: ['Portfolio/image/projects/detailed-robot/1.jpg','Portfolio/image/projects/detailed-robot/2.jpg','Portfolio/image/projects/detailed-robot/3.jpg'],
     },
     dino: {
       title: 'Dinosaur',
       desc:  'Creature Sculpt — High-detail dinosaur sculpt with realistic skin texture, muscular anatomy, and dynamic pose.',
-      images: ['Portfolio/images/projects/dino/1.jpg'],
+      images: ['Portfolio/image/projects/dino/1.jpg'],
     },
     elf: {
       title: 'Elf Character',
       desc:  'Fantasy Character — Stylized elf design blending organic character modeling with hard-surface armor detailing.',
-      images: ['Portfolio/images/projects/elf/1.jpg','Portfolio/images/projects/elf/2.jpg','Portfolio/images/projects/elf/elf%20tex.jpg'],
+      images: ['Portfolio/image/projects/elf/1.jpg','Portfolio/image/projects/elf/2.jpg','Portfolio/image/projects/elf/3.jpg'],
     },
     samurai: {
       title: 'Samurai',
       desc:  'Character Design — Fully realized samurai warrior combining intricate armor hard-surface elements with organic facial and body sculpting.',
-      images: ['samurai/1.jpg','samurai/2.jpg','samurai/3.jpg','samurai/4.jpg','samurai/5.jpg'],
+      images: ['Portfolio/image/projects/samurai/1.jpg','Portfolio/image/projects/samurai/2.jpg','Portfolio/image/projects/samurai/3.jpg','Portfolio/image/projects/samurai/4.jpg','Portfolio/image/projects/samurai/5.jpg'],
     },
     scfi: {
       title: 'Sci-Fi Asset',
       desc:  'Game Ready Asset — Sci-fi prop with clean UV mapping, optimized topology, and fully baked PBR textures for real-time engine use.',
-      images: ['scfi/1.jpg','scfi/2.jpg','scfi/3.jpg'],
+      images: ['Portfolio/image/projects/scfi/1.jpg','Portfolio/image/projects/scfi/2.jpg','Portfolio/image/projects/scfi/3.jpg'],
     },
     spaceship: {
       title: 'Spaceship',
       desc:  'Vehicle Design — Detailed spaceship model with hard-surface panel work, engine detailing, and cinematic lighting renders.',
-      images: ['spaceship/1.jpg','spaceship/2.jpg','spaceship/3.jpg','spaceship/space%20(1).jpg','spaceship/space%20(2).jpg','spaceship/space%20(3).jpg','spaceship/space%20(4).jpg','spaceship/space%20(5).jpg','spaceship/space%20(6).jpg'],
+      images: ['Portfolio/image/projects/spaceship/space%20(1).jpg','Portfolio/image/projects/spaceship/space%20(2).jpg','Portfolio/image/projects/spaceship/space%20(3).jpg','Portfolio/image/projects/spaceship/space%20(4).jpg','Portfolio/image/projects/spaceship/space%20(5).jpg','Portfolio/image/projects/spaceship/space%20(6).jpg'],
     },
     witch: {
       title: 'Witch Character',
       desc:  'Stylized Character — Witch character with expressive design, dynamic cloth simulation elements, and rich surface detailing.',
-      images: ['Portfolio/images/projects/witch/1.jpg','Portfolio/images/projects/witch/2.jpg','Portfolio/images/projects/witch/3.jpg'],
+      images: ['Portfolio/image/projects/witch/1.jpg','Portfolio/image/projects/witch/2.jpg','Portfolio/image/projects/witch/3.jpg'],
     },
     vrhospital: {
       title: 'Medical VR Anatomy',
       desc:  'VR Project — Interactive VR application for medical students. Sculpted anatomical models in ZBrush and integrated into Unreal Engine for immersive VR interaction.',
-      images: ['VrHospital/1.jpg','VrHospital/2.jpg','VrHospital/3.jpg','VrHospital/4.jpg'],
+      images: ['Portfolio/image/projects/VrHospital/1.jpg','Portfolio/image/projects/VrHospital/2.jpg','Portfolio/image/projects/VrHospital/3.jpg','Portfolio/image/projects/VrHospital/4.jpg'],
     },
   };
 
