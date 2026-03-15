@@ -203,11 +203,6 @@ document.addEventListener('DOMContentLoaded', () => {
       desc:  'Hard Surface Model — Fully modeled robotic character with clean topology, intricate mechanical parts, and PBR-ready surfaces.',
       images: ['Portfolio/image/projects/detailed-robot/1.jpg','Portfolio/image/projects/detailed-robot/2.jpg','Portfolio/image/projects/detailed-robot/3.jpg'],
     },
-    'detailed-robot': {
-      title: 'Detailed Robot',
-      desc:  'Hard Surface Model — Fully modeled robotic character with clean topology, intricate mechanical parts, and PBR-ready surfaces.',
-      images: ['Portfolio/image/projects/detailed-robot/1.jpg','Portfolio/image/projects/detailed-robot/2.jpg','Portfolio/image/projects/detailed-robot/3.jpg'],
-    },
     dino: {
       title: 'Dinosaur',
       desc:  'Creature Sculpt — High-detail dinosaur sculpt with realistic skin texture, muscular anatomy, and dynamic pose.',
@@ -216,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
     elf: {
       title: 'Elf Character',
       desc:  'Fantasy Character — Stylized elf design blending organic character modeling with hard-surface armor detailing.',
-      images: ['Portfolio/image/projects/elf/1.jpg','Portfolio/image/projects/elf/2.jpg','Portfolio/image/projects/elf/3.jpg'],
+      images: ['elf/1.jpg','elf/2.jpg','elf/3.jpg','elf/4.jpg'],
     },
     samurai: {
       title: 'Samurai',
@@ -236,12 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
     witch: {
       title: 'Witch Character',
       desc:  'Stylized Character — Witch character with expressive design, dynamic cloth simulation elements, and rich surface detailing.',
-      images: ['Portfolio/image/projects/witch/1.jpg','Portfolio/image/projects/witch/2.jpg','Portfolio/image/projects/witch/3.jpg'],
-    },
-    witch: {
-      title: 'Witch Character',
-      desc:  'Stylized Character — Witch character with expressive design, dynamic cloth simulation elements, and rich surface detailing.',
-      images: ['witch/1.jpg','witch/2.jpg'],
+      images: ['witch/1.jpg','witch/2.jpg','witch/3.jpg'],
     },
     face: {
       title: 'Face Study',
@@ -267,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
     vrhospital: {
       title: 'Medical VR Anatomy',
       desc:  'VR Project — Interactive VR application for medical students. Sculpted anatomical models in ZBrush and integrated into Unreal Engine for immersive VR interaction.',
-      images: ['Portfolio/image/projects/VrHospital/1.jpg','Portfolio/image/projects/VrHospital/2.jpg','Portfolio/image/projects/VrHospital/3.jpg','Portfolio/image/projects/VrHospital/4.jpg'],
+      images: ['VrHospital/1.jpg','VrHospital/2.jpg','VrHospital/3.jpg','VrHospital/4.jpg','VrHospital/5.jpg','VrHospital/6.jpg','VrHospital/7.jpg','VrHospital/8.jpg'],
     },
   };
 
