@@ -238,6 +238,32 @@ document.addEventListener('DOMContentLoaded', () => {
       desc:  'Stylized Character — Witch character with expressive design, dynamic cloth simulation elements, and rich surface detailing.',
       images: ['Portfolio/image/projects/witch/1.jpg','Portfolio/image/projects/witch/2.jpg','Portfolio/image/projects/witch/3.jpg'],
     },
+    witch: {
+      title: 'Witch Character',
+      desc:  'Stylized Character — Witch character with expressive design, dynamic cloth simulation elements, and rich surface detailing.',
+      images: ['witch/1.jpg','witch/2.jpg'],
+    },
+    face: {
+      title: 'Face Study',
+      desc:  'Character Sculpt — Detailed facial anatomy study focusing on realistic skin surface, expression, and secondary forms.',
+      images: ['face/1.jpg','face/2.jpg','face/3.jpg','face/4.jpg'],
+    },
+    yearsprojects: {
+      title: '1st & 2nd Year Projects',
+      desc:  'Early Works Collection — A showcase of projects from the first and second year, demonstrating growth in 3D modeling, sculpting, and design fundamentals.',
+      images: [
+        '1st%20and%202nd%20year%20projects/1.jpg',
+        '1st%20and%202nd%20year%20projects/2.jpg',
+        '1st%20and%202nd%20year%20projects/3.jpg',
+        '1st%20and%202nd%20year%20projects/4.jpg',
+        '1st%20and%202nd%20year%20projects/5.jpg',
+        '1st%20and%202nd%20year%20projects/6.jpg',
+        '1st%20and%202nd%20year%20projects/7.jpg',
+        '1st%20and%202nd%20year%20projects/8.jpg',
+        '1st%20and%202nd%20year%20projects/9.jpg',
+        '1st%20and%202nd%20year%20projects/10.jpg',
+      ],
+    },
     vrhospital: {
       title: 'Medical VR Anatomy',
       desc:  'VR Project — Interactive VR application for medical students. Sculpted anatomical models in ZBrush and integrated into Unreal Engine for immersive VR interaction.',
