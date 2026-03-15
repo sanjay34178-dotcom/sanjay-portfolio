@@ -288,3 +288,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (yr) yr.textContent = new Date().getFullYear();
 
 });
+
+  /* EMAIL — set via JS to prevent Cloudflare obfuscation */
+  const u = 'sanjay34178';
+  const d = 'gmail.com';
+  const el = document.getElementById('email-link');
+  const et = document.getElementById('email-text');
+  if (el && et) {
+    el.href = 'mailto:' + u + '@' + d;
+    et.textContent = u + '@' + d;
+  }
