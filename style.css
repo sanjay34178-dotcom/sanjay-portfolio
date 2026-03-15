@@ -165,8 +165,8 @@ img { max-width: 100%; display: block; }
   font-size:clamp(5rem,15vw,14rem); line-height:.88; margin-bottom:20px;
   opacity:0; animation:slideUp .8s var(--ease) .5s forwards;
 }
-.filled-text { color:var(--white); display:block; }
-.stroke-text  { color:transparent; -webkit-text-stroke:2px var(--white); display:block; }
+.filled-text { color:var(--white); display:inline; }
+.stroke-text  { color:transparent; -webkit-text-stroke:2px var(--white); display:inline; margin-left:0.05em; }
 
 .hero-role {
   font-size:clamp(.85rem,1.5vw,.95rem); color:#ddd; letter-spacing:.05em;
