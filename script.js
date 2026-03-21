@@ -216,17 +216,17 @@ document.addEventListener('DOMContentLoaded', () => {
     samurai: {
       title: 'Samurai',
       desc:  'Character Design — Fully realized samurai warrior combining intricate armor hard-surface elements with organic facial and body sculpting.',
-      images: ['samurai/1.jpg','samurai/2.jpg','samurai/3.jpg','samurai/4.jpg','samurai/5.jpg'],
+      images: ['Portfolio/image/projects/samurai/1.jpg','Portfolio/image/projects/samurai/2.jpg','Portfolio/image/projects/samurai/3.jpg','Portfolio/image/projects/samurai/4.jpg','Portfolio/image/projects/samurai/5.jpg'],
     },
     scfi: {
       title: 'Sci-Fi Asset',
       desc:  'Game Ready Asset — Sci-fi prop with clean UV mapping, optimized topology, and fully baked PBR textures for real-time engine use.',
-      images: ['scfi/1.jpg','scfi/2.jpg','scfi/3.jpg'],
+      images: ['Portfolio/image/projects/scfi/1.jpg','Portfolio/image/projects/scfi/2.jpg','Portfolio/image/projects/scfi/3.jpg'],
     },
     spaceship: {
       title: 'Spaceship',
       desc:  'Vehicle Design — Detailed spaceship model with hard-surface panel work, engine detailing, and cinematic lighting renders.',
-      images: ['spaceship/space%20(1).jpg','spaceship/space%20(2).jpg','spaceship/space%20(3).jpg','spaceship/space%20(4).jpg','spaceship/space%20(5).jpg','spaceship/space%20(6).jpg'],
+      images: ['Portfolio/image/projects/spaceship/space%20(1).jpg','Portfolio/image/projects/spaceship/space%20(2).jpg','Portfolio/image/projects/spaceship/space%20(3).jpg','Portfolio/image/projects/spaceship/space%20(4).jpg','Portfolio/image/projects/spaceship/space%20(5).jpg','Portfolio/image/projects/spaceship/space%20(6).jpg'],
     },
     witch: {
       title: 'Witch Character',
