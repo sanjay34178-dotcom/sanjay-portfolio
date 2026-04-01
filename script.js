@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
     face: {
       title: 'Face Study',
       desc:  'Character Sculpt — Detailed facial anatomy study focusing on realistic skin surface, expression, and secondary forms.',
-      images: ['face/1.jpg','face/2.jpg','face/3.jpg','face/4.jpg'],
+      images: ['face/1.jpg','face/2.jpg','face/3.jpg','face/4.jpg','face/5.jpg','face/6.jpg','face/7.jpg','face/8.jpg','face/9.jpg'],
     },
     yearsprojects: {
       title: '1st & 2nd Year Projects',
